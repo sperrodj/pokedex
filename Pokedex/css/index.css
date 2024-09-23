@@ -1,0 +1,105 @@
+/* Establecemos color de fondo al body*/
+
+body {
+    background: #3466AF;
+}
+
+/* Alineamos el texto al centro */
+.header {
+    /*font-family: DejaVu Sans Mono, monospace;
+    color: white;*/
+    text-align: center;
+}
+
+/* Establecemos el tamaño del logo */
+.logo {
+    width: 600px; 
+    height: 200px;
+}
+
+/* La clase .body utiliza flexbox para centrar el contenido. 
+Los elementos dentro de esta clase estarán alineados verticalmente (align-items: center) 
+y centrados horizontalmente (justify-content: center). */
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*La clase .button define el estilo de un botón:
+Fondo rojo (#ff0000).
+Bordes redondeados con un radio de 8px.
+Sin borde (border: none).
+Texto blanco.
+Relleno interno de 15px arriba y abajo, 32px a los lados.
+Texto centrado (text-align: center), sin subrayado (text-decoration: none), y de 16px de tamaño.
+Tipografía "DejaVu Sans Mono".
+Efecto de sombra con dos capas de sombra (box-shadow).*/
+.button {
+    background-color: #ff0000;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: DejaVu Sans Mono, monospace;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Pokedex 
+El elemento con el id="pokedex" se convierte en un contenedor de cuadrícula (grid).
+Se divide en 6 columnas iguales (repeat(6, 1fr)).
+Se establece un espacio de 10px entre filas y columnas (grid-gap).
+El contenedor ocupa el 100% del ancho de la pantalla. */
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px 10px;
+    width: 100%;
+}
+/*La clase .card define el estilo de cada tarjeta (card) del pokédex:
+Usa la fuente "DejaVu Sans Mono".
+Tiene un borde sólido de 2px en gris oscuro.
+Bordes redondeados con un radio de 5px.
+Un fondo con un degradado que va de gris oscuro (rgb(88, 88, 88)) a blanco.
+El contenido dentro de la tarjeta se centra horizontalmente.*/
+.card {
+    font-family: DejaVu Sans Mono, monospace;
+    border: 2px solid rgb(78, 78, 78);
+    border-radius: 5px;
+    background-image: linear-gradient(rgb(88, 88, 88), rgb(255, 255, 255));
+    text-align: center;
+}
+/*Cuando el usuario pasa el cursor sobre una tarjeta (.card:hover), la imagen dentro de la tarjeta (img) se oculta (display: none).*/
+.card:hover img {
+    display:none;
+}
+
+/*Inicialmente, el contenido de la clase .front dentro de la tarjeta no se muestra (display: none).
+Cuando el usuario pasa el cursor sobre la tarjeta (.card:hover), el contenido de .front se muestra 
+como un bloque en línea (display: inline-block) y se le asigna una animación llamada resizePokemon, que se repite indefinidamente (infinite) durante 1 segundo. */
+.card .front {
+    display:none;
+}
+.card:hover .front {
+    display: inline-block;
+    animation: resizePokemon 1s infinite;
+}
+
+/*Se define una animación llamada resizePokemon que aumenta gradualmente el tamaño del elemento desde su tamaño original (1x) a un 120% de su tamaño (scale(1.2)).*/
+
+@keyframes resizePokemon {
+    0% { transform: scale(1)}
+    100% { transform: scale(1.2)}
+}
+/*La clase .types define el estilo para las etiquetas de tipos de Pokémon:
+Borde sólido de 1px en un color amarillo (rgb(255, 217, 0)).
+Texto en negrita (font: bold).
+Fondo con un degradado de amarillo pálido a amarillo brillante.*/
+.types {
+    border: 1px solid rgb(255, 217, 0);
+    font: bold;
+    background-image: linear-gradient(rgb(248, 247, 169), rgb(255, 238, 0));
+}
